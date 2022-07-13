@@ -10,20 +10,39 @@ export class DashboardPageComponent implements OnInit {
 
   constructor(private service: GamesService) { }
 
-  allGames: any = [];
+  userScores: any = [];
+  players: any = [];
+  apiData: any = [];
 
   ngOnInit(): void {
-    this.games();
+    this.scores();
+    this.getPlayers();
+    this.getApiData();
   }
 
-  games(): void {
+  scores(): void {
     this.service
-      .games()
+      .getScores()
       .subscribe((response: any) => {
-        this.allGames = response.data;
+        this.userScores = response;
       });
-    console.log(this.allGames);
-    console.log("googa choopna");
   }
+
+  getPlayers(): void {
+    this.service
+      .getPlayers()
+      .subscribe((response: any) => {
+        this.players = response;
+      });
+  }
+
+  getApiData(): void {
+    this.service
+      .getApiData()
+      .subscribe((response: any) => {
+        this.apiData = response;
+      });
+  }
+
 
 }

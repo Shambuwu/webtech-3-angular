@@ -1,15 +1,106 @@
 <h1 class="font-semibold text-lg text-gray-900">Dashboard page</h1>
-<table class="table-auto">
-  <thead>
-    <tr class="table-header-group">
-      <th>Username</th>
-      <th>Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let game of allGames">
-      <td>{{ game.username}}</td>
-      <td>{{ game.score }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="flex flex-col">
+  <h1 class="font-semibold text-base text-gray-900">Player Scores</h1>
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+          <tr>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              Username
+            </th>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              Score
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="border-b hover:bg-gray-100" *ngFor="let game of userScores">
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ game.username}}</td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ game.score }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex flex-col">
+  <h1 class="font-semibold text-base text-gray-900">All players</h1>
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+          <tr>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              Username
+            </th>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              Email
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="border-b hover:bg-gray-100" *ngFor="let game of players">
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ game.username}}</td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ game.email }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex flex-col">
+  <h1 class="font-semibold text-base text-gray-900">API data</h1>
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+          <tr>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              Number of games played
+            </th>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              Number of players
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="border-b hover:bg-gray-100">
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ apiData[0].aantal_spellen}}</td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ apiData[1].aantal_spelers }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+          <tr>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              API
+            </th>
+            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              Times used
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="border-b hover:bg-gray-100" *ngFor="let game of apiData[2]">
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ game.api}}</td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ game.aantal }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
