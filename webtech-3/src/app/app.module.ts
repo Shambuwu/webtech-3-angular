@@ -11,6 +11,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import {DataTablesModule} from "angular-datatables";
 import { LoginComponent } from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import { LoginComponent } from './login/login.component';
         AppRoutingModule,
         HttpClientModule,
         DataTablesModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

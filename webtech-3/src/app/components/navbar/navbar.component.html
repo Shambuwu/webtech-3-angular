@@ -9,7 +9,20 @@
       </button>
     </div>
     <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
-      <ul class="flex flex-col lg:flex-row list-none ml-auto">
+      <ul class="flex flex-col lg:flex-row list-none ml-auto" *ngIf="!authenticated">
+        <li class="nav-item">
+          <a routerLink="/" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+            <i class="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/login" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+            <i class="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Login</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="flex flex-col lg:flex-row list-none ml-auto" *ngIf="authenticated">
         <li class="nav-item">
           <a routerLink="/" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
             <i class="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Home</span>
@@ -21,8 +34,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/login" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
-            <i class="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Login</span>
+          <a routerLink="/" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+            <i class="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span class="ml-2" (click)="logout()">logout</span>
           </a>
         </li>
       </ul>
