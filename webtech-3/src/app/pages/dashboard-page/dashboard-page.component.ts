@@ -23,6 +23,7 @@ export class DashboardPageComponent implements OnInit {
         this.allGames = response.data;
       });
     console.log(this.allGames);
+    console.log("googa choopna");
   }
 
 }

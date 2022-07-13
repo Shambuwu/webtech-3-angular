@@ -5,10 +5,10 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class GamesService {
-  constructor(private http: HttpClient) {
-  }
+  private apiUrl = ''
+  constructor(private http: HttpClient) {}
 
   games() {
-    return this.http.get('http://localhost:3000/scores');
+    return this.http.get('http://localhost:8000/scores');
   }
 }
